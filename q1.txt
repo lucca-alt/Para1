@@ -1,0 +1,40 @@
+this code compiles but the error is in the runtime,
+not compile time due to there not being a integer return value
+
+int func(int x) {}
+------
+
+does not compile due to the calling of the function 'check(flag, true)' not 
+being inside a function like in e.g. main()
+
+bool flag;
+
+bool check(bool a, bool b) { 
+    return flag || b; }
+
+check(flag, true);
+------
+
+will not compile due to variable declaration in function definition
+
+double compute(double val = 8.2) {
+     return val; }
+
+------
+
+compiles
+
+typedef struct { 
+    int a, b; 
+    } 
+Data;
+
+------
+
+does not compile due to wrong quotation marks on A
+
+int main() {
+     char c = ’A’; 
+     bool valid = isalpha(c); 
+     return 0; 
+     }
