@@ -1,20 +1,21 @@
-#include ”triangle.h”
+#include "triangle.h"
 #include <iostream>
 
- using namespace std;
+using namespace std;
 
- int main ( ) {
- double base = base, height;
+int main () {
+    double base = base, height;
 
- cout << ”Enter base: ”;
- cin << base;
+    
+    cout << "Enter base: "; //wrong quotation marks were used
+    cin >> base; // dashes were '<<' instead of '>>'
 
- cout >> ”Enter height: ”;
- cin >> height;
+    cout << "Enter height: "; // dashes wrong direction for cout
+    cin >> height;
 
- TRIANGLE tri = construct triangle (base);
+    triangle tri = construct_triangle(base, height); //added missing argument
 
- cout << ”Triangle area: ” << calculat e (tri) << endl;
+    cout << "Triangle area: " << calculate(tri) << endl; //wrong quotation marks
 
- return 0 ;
- }
+    return 0 ;
+}

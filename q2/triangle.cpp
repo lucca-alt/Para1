@@ -1,12 +1,12 @@
 #include "triangle.h"
 
-TRIANGLE constructtriangle(double base, double height) {
-    TRIANGLE tri;
-    tri.base = &base
+triangle construct_triangle(double base, double height) { //adjusted all the 'triangle'for consistency
+    triangle tri;
+    tri.base = base; // unnecessary & on base (?)
     tri.height = height;
-    return triangle;
+    return tri; 
 }
 
-int calculate(TRIANGLE triangle) {
-    return (1 / 2) * triangle.base * triangle.height;
+double calculate(triangle tri) { //changed return type from int to double so it doesn't overload
+    return (1 / 2) * tri.base * tri.height;
 }
