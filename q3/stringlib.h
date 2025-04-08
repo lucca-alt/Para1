@@ -12,4 +12,4 @@ namespace str {
 }
 
 
-#endif
+#endif /* STRINGLIB_H */

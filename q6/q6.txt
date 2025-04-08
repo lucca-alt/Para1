@@ -1,0 +1,27 @@
+1: initialization of integer a = 5
+2: initialization of integer b = 10
+3: initialization of integer array of size 3 with 1,2 and 3 as elements
+4: 
+5: pointer p to adress of integer a
+6: reference r of integer b
+7: 
+8: gets value of adress in p with *p and adds 2. so a = 7 now
+9: multiplies 2 to the reference r, so b,r = 20
+10: 
+11: p now points to first element of c
+12: changes value of second element in array to *p + r (1 + 20) which is 21
+13: p is now pointing to second element
+14: second element of array (21) +  (b (20) - a (7)) = 34
+15:
+16: a = 7
+17: b = 20
+18: c[0] = 1 
+19: c[1] = 34
+20: c[2] = 3
+21:
+22: p points to address of a again
+23: q is now a pointer which points to the address of pointer p which points to address of integer a
+24: value on p = (value on p) * 3 * b * (value on q) -> 7 * 3 * 20 * 7 = 2940
+25: p now points to address of b
+26: equal to b++ so b = 21 now
+27: 7 21 (address of b) (a new address)
