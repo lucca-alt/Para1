@@ -1,0 +1,4 @@
+the error is the array size. we assign it a size of [2] but want to add 3 elements to it.
+
+a possible fix would be int c[3] = {}; so all elements would be zero initialized
+another would be to give it a bigger size so theres enough space in case we want to add even more elements.
