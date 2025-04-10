@@ -1,44 +1,26 @@
 #include "fraction.h"
+#include <iostream>
 #include <numeric>
+#include <algorithm>
 
 using namespace std;
 
-Fraction add(Fraction a, Fraction b){ //for some reason doesnt compile but should give the right result
+Fraction add(Fraction a, Fraction b){ 
     Fraction sum;
 
-    if (a.denominator != b.denominator){
-        sum.denominator = lcm(a.denominator, b.denominator); //kleinstes gemeinsames vielfaches
-
-        a.numerator = a.numerator * (sum.denominator / a.denominator); // to fit the numerator to the lcm
-        b.numerator = b.numerator * (sum.denominator / b.denominator);
-
-        sum.numerator = a.numerator + b.numerator;
-
-        return sum;
-        }
-
-    sum.numerator = a.numerator + b.numerator;
-    sum.denominator = a.denominator;
+    sum.numerator = a.numerator * b. denominator + b.numerator * a.denominator; 
+    sum.denominator = a.denominator * b.denominator;
+    
     return sum; 
     } 
 
 
-Fraction subtract(Fraction a, Fraction b){ //same here as in the add function
+Fraction subtract(Fraction a, Fraction b){ 
     Fraction diff;
 
-    if (a.denominator != b.denominator){
-        diff.denominator = lcm(a.denominator, b.denominator); //kleinstes gemeinsames vielfaches
+    diff.numerator = a.numerator * b. denominator - b.numerator * a.denominator;
+    diff.denominator = a.denominator * b.denominator;
 
-        a.numerator = a.numerator * (diff.denominator / a.denominator); // to fit the numerator to the lcm
-        b.numerator = b.numerator * (diff.denominator / b.denominator);
-
-        diff.numerator = a.numerator - b.numerator;
-
-        return diff;
-        }
-
-    diff.numerator = a.numerator - b.numerator;
-    diff.denominator = a.denominator;
     return diff; 
 }
 
@@ -55,23 +37,57 @@ Fraction multiply(Fraction a, Fraction b){
 
 Fraction divide(Fraction a, Fraction b){
     Fraction quotient;
-    int newD = b.numerator;
-    int newN = b.denominator;
 
-    quotient.numerator = a.numerator * newN;
-    quotient.denominator = a.denominator * newD;
+    quotient.numerator = a.numerator * b.denominator;
+    quotient.denominator = a.denominator * b.numerator;
 
     return quotient;
 }
 
 
 Fraction simplifyFraction(Fraction f){
-    
+    Fraction simple;
+    int a = max(f.numerator, f.denominator);
+    int b = min(f.numerator, f.denominator);
+
+    while (b!= 0){
+        int c = b;
+        b = a % b;
+        a = c;
+    }
+
+    simple.numerator = f.numerator / a;
+    simple.denominator = f.denominator / a;
+
+    return simple;
 }
 
 int main(){
+    Fraction f;
+    f.numerator = 13;
+    f.denominator = 5;
 
+    Fraction g;
+    g.numerator = 14;
+    g.denominator = 15;
 
+    Fraction addR = add(f, g);
+    cout << addR.numerator << "/" << addR.denominator << endl;
+
+    Fraction subR = subtract(f, g);
+    cout << subR.numerator << "/" << subR.denominator << endl;
+
+    Fraction multR = multiply(f, g);
+    cout << multR.numerator << "/" << multR.denominator << endl;
+
+    Fraction divideR = divide(f, g);
+    cout << divideR.numerator << "/" << divideR.denominator << endl; 
+
+    Fraction result = simplifyFraction(f);
+    cout << result.numerator << "/" << result.denominator << endl;
+
+    Fraction simpleAdd = simplifyFraction(add(f, g));
+    cout << simpleAdd.numerator << "/" << simpleAdd.denominator << endl;
 
     return 0;
 }
