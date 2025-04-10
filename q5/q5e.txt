@@ -1,0 +1,6 @@
+A union makes memory usage more efficient by allocating memory equal to the size of its largest member, 
+since all members share the same memory location. This means that only one member can be used at a time, 
+as writing to one overwrites the others.
+
+A struct, on the other hand, allocates separate memory for each member, allowing all members to be accessed simultaneously. 
+While this makes structs more flexible, it also leads to higher memory usage compared to unions.
