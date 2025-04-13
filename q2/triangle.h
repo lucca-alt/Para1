@@ -6,7 +6,7 @@ typedef struct {
     double height;
 } triangle; 
 
-triangle construct_triangle(int base, double height);
+triangle construct_triangle(double base, double height); //changed int base to double base
 double calculate(triangle tri); //missing ';' , changed argument to tri for more clarity
 
 #endif /* TRIANGLE_H */

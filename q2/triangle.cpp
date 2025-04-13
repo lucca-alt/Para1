@@ -8,5 +8,5 @@ triangle construct_triangle(double base, double height) { //adjusted all the 'tr
 }
 
 double calculate(triangle tri) { //changed return type from int to double so it doesn't overload
-    return (1 / 2) * tri.base * tri.height;
+    return 0.5 * tri.base * tri.height; //change 1 /2 to 0.5 because of integer division
 }
